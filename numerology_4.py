@@ -41,8 +41,17 @@ for i in date_list:
     df[name_list[count]] = pd.Series(col_list)
     count += 1
 df = df.set_index(" ")
-def apply_color(val):
-    if val == "A":
+def color(v):
+    if v == "A":
         return "background-color: red"
+    if v == "B":
+        return "background-color: blue"
+    if v == "C":
+        return "background-color: green"
+    if v == "D":
+        return "background-color: orange"
+def apply_color(col):
+    if col.name in name_list:
+        return [color(val) for val in col.values] 
 df = df.style.apply(apply_color)
 st.table(df)

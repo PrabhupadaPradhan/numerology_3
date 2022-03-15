@@ -29,11 +29,16 @@ def compat_func(date_a, date_b):
     a = life_pn_func(date_a)
     b = life_pn_func(date_b)
     return compatability(a, b)
+name_list = ["Guddu", "Kunu", "Mamia", "Bapa", "Adi"]
 date_list = ["07/02/2005", "27/09/2008", "02/10/1979", "17/08/1973", "01/11/2006"]
 df = pd.DataFrame()
+df[" "] = name_list
+df = df.set_index(" ")
+count = 0
 for i in date_list:
     col_list = []
     for j in date_list:
         col_list.append(compat_func(j, i))
-    df[i] = pd.Series(col_list)
+    df[name_list[count]] = pd.Series(col_list)
+    count += 1
 st.table(df)

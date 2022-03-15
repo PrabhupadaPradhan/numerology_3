@@ -25,11 +25,9 @@ def life_pn_func(date_1):
         if date in [2, 4, 11, 22]:
             life_pn = date
     return life_pn
-x = life_pn_func(date_1)
-y = life_pn_func(date_2)
 def compat_func(date_a, date_b):
-    a = life_pn(date_a)
-    b = life_pn(date_b)
+    a = life_pn_func(date_a)
+    b = life_pn_func(date_b)
     return compatability(a, b)
 date_list = ["07/02/2005", "27/09/2008", "02/10/1979", "17/08/1973", "01/11/2006"]
 df = pd.DataFrame()
